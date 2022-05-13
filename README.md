@@ -4,9 +4,8 @@ A Yeoman generator for generating Microservices with SpringBoot in Hexagonal Arc
 ## How to use?
 
 ```
-> npm install -g yo
-> npm install -g generator-springboot-hexagonal
-> yo springboot
+> npm i generator-springboot-hexagonal
+> yo generator-springboot-hexagonal
 ```
 
 ## Features
