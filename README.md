@@ -16,13 +16,12 @@ A Yeoman generator for generating Microservices with SpringBoot in Hexagonal Arc
 * Swagger UI Integration
 * Spring Data JPA integration with option to select databases like MySQL, Postgresql, MariaDB etc
 * RabbitMQ
+* Kubernetes
 * Flyway or Liquibase data migration support
 * SpringBoot Actuator configuration
 * TestContainers integration
 * JUnit 5 
-* Docker configuration for Application, ELK, Prometheus, Grafana
 * Localstack configuration
-* GitHub Actions Configuration
 
 ### Generate SpringBoot Microservice
 
