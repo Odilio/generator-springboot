@@ -1,0 +1,12 @@
+{
+  "generator-springboot": {
+    "appName": "myservice",
+    "packageName": "com.mycompany.myservice",
+    "packageFolder": "com/mycompany/myservice",
+    "databaseType": "postgresql",
+    "dbMigrationTool": "liquibase",
+    "features": ["elk"],
+    "buildTool": "maven",
+    "liquibaseMigrationCounter": 1
+  }
+}

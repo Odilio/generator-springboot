@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: <%= appName %>
+spec:
+  selector:
+    matchLabels:
+      app: <%= appName %>
+  template:
+    metadata:
+      labels:
+        app: <%= appName %>
+    spec:
+      dnsConfig:
+        options:
+          - name: single-request-reopen
+      containers:
+        - name: <%= appName %>
+          image: <%= imageName %>/<%= appName %>
+          ports:
+            - containerPort: 8090

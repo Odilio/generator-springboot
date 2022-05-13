@@ -1,0 +1,9 @@
+apiVersion: skaffold/v2beta23
+kind: Config
+metadata:
+  name: <%= appName %>
+build:
+  artifacts:
+    - image: <%= imageName %>/<%= appName %>
+      jib:
+        project: <%= packageName %>:<%= appName %>
