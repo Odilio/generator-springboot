@@ -61,3 +61,12 @@ This will generate:
 > yo springboot-hexagonal
 ```
 
+## Roadmap
+
+myservice> yo springboot-hexagonal:cassandra
+
+myservice> yo springboot-hexagonal:mongodb
+
+myservice> yo springboot-hexagonal:grpc
+
+myservice> yo springboot-hexagonal:mail

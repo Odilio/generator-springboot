@@ -10,8 +10,6 @@ public interface <%= entityName %>ServicePort {
 
     public Page<<%= entityName %>Mapper> listarTodos(Pageable page );
 
-    public Page<<%= entityName %>Mapper> listarFiltrandoTodosCampos(String search, Pageable page );
-
     public <%= entityName %>Mapper salvar<%= entityName %>(<%= entityName %>Mapper entity);
 
     public void remover<%= entityName %>(Long id );
