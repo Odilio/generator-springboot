@@ -124,7 +124,7 @@ class <%= entityName %>ControllerTest {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %>Mapper <%= entityVarName %> = new <%= entityName %>Mapper(<%= entityVarName %>Id, "Some text");
         given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(<%= entityVarName %>);
-        doNothing().when(<%= entityVarName %>Service).delete<%= entityName %>ById(<%= entityVarName %>.getId());
+        doNothing().when(<%= entityVarName %>Service).remover<%= entityName %>(<%= entityVarName %>.getId());
 
         this.mockMvc
                 .perform(delete("<%= basePath %>/{id}", <%= entityVarName %>.getId()))
