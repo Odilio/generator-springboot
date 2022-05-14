@@ -8,8 +8,6 @@ module.exports = class extends BaseGenerator {
         super(args, opts);
         this.configOptions = this.options.configOptions || {};
 
-    
-        
 
         this.option('image-name', {
             type: String,

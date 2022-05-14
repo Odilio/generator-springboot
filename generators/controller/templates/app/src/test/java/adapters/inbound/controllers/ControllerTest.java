@@ -118,42 +118,12 @@ class <%= entityName %>ControllerTest {
                 .andReturn();
     }
 
-    @Test
-    void shouldUpdate<%= entityName %>() throws Exception {
-        Long <%= entityVarName %>Id = 1L;
-        <%= entityName %> <%= entityVarName %> = new <%= entityName %>Mapper(<%= entityVarName %>Id, "Updated text");
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
-        given(<%= entityVarName %>Service.save<%= entityName %>(any(<%= entityName %>.class)))
-                .willAnswer((invocation) -> invocation.getArgument(0));
-
-        this.mockMvc
-                .perform(
-                        put("<%= basePath %>/{id}", <%= entityVarName %>.getId())
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(<%= entityVarName %>)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.text", is(<%= entityVarName %>.getText())));
-    }
-
-    @Test
-    void shouldReturn404WhenUpdatingNonExisting<%= entityName %>() throws Exception {
-        Long <%= entityVarName %>Id = 1L;
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.empty());
-        <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "Updated text");
-
-        this.mockMvc
-                .perform(
-                        put("<%= basePath %>/{id}", <%= entityVarName %>Id)
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(<%= entityVarName %>)))
-                .andExpect(status().isNotFound());
-    }
 
     @Test
     void shouldDelete<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "Some text");
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
+        <%= entityName %>Mapper <%= entityVarName %> = new <%= entityName %>Mapper(<%= entityVarName %>Id, "Some text");
+        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(<%= entityVarName %>);
         doNothing().when(<%= entityVarName %>Service).delete<%= entityName %>ById(<%= entityVarName %>.getId());
 
         this.mockMvc
@@ -165,7 +135,7 @@ class <%= entityName %>ControllerTest {
     @Test
     void shouldReturn404WhenDeletingNonExisting<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.empty());
+        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(null);
 
         this.mockMvc
                 .perform(delete("<%= basePath %>/{id}", <%= entityVarName %>Id))
