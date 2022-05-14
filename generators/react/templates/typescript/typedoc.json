@@ -1,0 +1,8 @@
+{
+  "entryPoints": ["./src"],
+  "entryPointStrategy": "expand",
+  "exclude": ["./src/**/index.ts", "./src/**/*.test.*", "./src/**/*.spec.*"],
+  "name": "My React Project",
+  "out": "docs",
+  "readme": "./README.md"
+}

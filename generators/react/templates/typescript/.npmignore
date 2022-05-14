@@ -1,6 +1,8 @@
 .vscode
-.DS_Store
+.husky
 node_modules
 coverage
 dist
 docs
+package-lock.json
+yarn.lock

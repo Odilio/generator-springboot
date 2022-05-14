@@ -61,7 +61,7 @@ class <%= entityName %>ControllerTest {
     void shouldFind<%= entityName %>ById() throws Exception {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "text 1");
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
+        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
 
         this.mockMvc
                 .perform(get("<%= basePath %>/{id}", <%= entityVarName %>Id))
@@ -72,7 +72,7 @@ class <%= entityName %>ControllerTest {
     @Test
     void shouldReturn404WhenFetchingNonExisting<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.empty());
+        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(null);
 
         this.mockMvc
                 .perform(get("<%= basePath %>/{id}", <%= entityVarName %>Id))
@@ -93,29 +93,6 @@ class <%= entityName %>ControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id", notNullValue()))
                 .andExpect(jsonPath("$.text", is(<%= entityVarName %>.getText())));
-    }
-
-    @Test
-    void shouldReturn400WhenCreateNew<%= entityName %>WithoutText() throws Exception {
-        <%= entityName %> <%= entityVarName %> = new <%= entityName %>(null, null);
-
-        this.mockMvc
-                .perform(
-                        post("<%= basePath %>")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(<%= entityVarName %>)))
-                .andExpect(status().isBadRequest())
-                .andExpect(header().string("Content-Type", is("application/problem+json")))
-                .andExpect(
-                        jsonPath(
-                                "$.type",
-                                is("https://zalando.github.io/problem/constraint-violation")))
-                .andExpect(jsonPath("$.title", is("Constraint Violation")))
-                .andExpect(jsonPath("$.status", is(400)))
-                .andExpect(jsonPath("$.violations", hasSize(1)))
-                .andExpect(jsonPath("$.violations[0].field", is("text")))
-                .andExpect(jsonPath("$.violations[0].message", is("Text cannot be empty")))
-                .andReturn();
     }
 
 

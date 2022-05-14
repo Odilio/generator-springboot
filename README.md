@@ -50,6 +50,9 @@ This will generate:
 
 `myservice> yo springboot-hexagonal:kubernetes --image-name customers`
 
+`myservice> yo springboot-hexagonal:react` 
+this command will generate a basic react client project 
+
 ## Local Development Setup
 
 ```
@@ -69,3 +72,5 @@ myservice> yo springboot-hexagonal:mongodb
 myservice> yo springboot-hexagonal:grpc
 
 myservice> yo springboot-hexagonal:mail
+
+myservice> yo springboot-hexagonal:reactadmin
