@@ -8,6 +8,8 @@ A Yeoman generator for generating Microservices with SpringBoot in Hexagonal Arc
 > npm i generator-springboot-hexagonal
 > yo springboot-hexagonal
 ```
+to known more look at the doc page 
+https://spark-life.gitbook.io/spring-hexagonal/
 
 ## Features
 
@@ -52,9 +54,10 @@ This will generate:
 `myservice> yo springboot-hexagonal:rabbitmq Customer --queue-name customers`
 
 `myservice> yo springboot-hexagonal:kubernetes`
+see more in https://spark-life.gitbook.io/spring-hexagonal/generators/kubernetes
 
 `myservice> yo springboot-hexagonal:react` 
-this command will generate a basic react client project 
+see more in https://spark-life.gitbook.io/spring-hexagonal/generators/react
 
 ## Local Development Setup
 

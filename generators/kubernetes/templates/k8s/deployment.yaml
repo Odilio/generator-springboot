@@ -16,6 +16,6 @@ spec:
           - name: single-request-reopen
       containers:
         - name: <%= appName %>
-          image: <%= imageName %>/<%= appName %>
+          image: <%= appName %>/<%= appName %>
           ports:
             - containerPort: 8090

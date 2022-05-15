@@ -4,6 +4,6 @@ metadata:
   name: <%= appName %>
 build:
   artifacts:
-    - image: <%= imageName %>/<%= appName %>
+    - image: <%= appName %>/<%= appName %>
       jib:
         project: <%= packageName %>:<%= appName %>
