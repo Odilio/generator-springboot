@@ -60,8 +60,8 @@ class <%= entityName %>ControllerTest {
     @Test
     void shouldFind<%= entityName %>ById() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "text 1");
-        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
+        <%= entityName %>Mapper <%= entityVarName %> = new <%= entityName %>Mapper(<%= entityVarName %>Id, "text 1");
+        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(<%= entityVarName %>);
 
         this.mockMvc
                 .perform(get("<%= basePath %>/{id}", <%= entityVarName %>Id))
@@ -81,10 +81,10 @@ class <%= entityName %>ControllerTest {
 
     @Test
     void shouldCreateNew<%= entityName %>() throws Exception {
-        given(<%= entityVarName %>Service.save<%= entityName %>(any(<%= entityName %>.class)))
+        given(<%= entityVarName %>Service.salvar<%= entityName %>(any(<%= entityName %>Mapper.class)))
                 .willAnswer((invocation) -> invocation.getArgument(0));
 
-        <%= entityName %> <%= entityVarName %> = new <%= entityName %>Mapper(1L, "some text");
+        <%= entityName %>Mapper <%= entityVarName %> = new <%= entityName %>Mapper(1L, "some text");
         this.mockMvc
                 .perform(
                         post("<%= basePath %>")

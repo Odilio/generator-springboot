@@ -3,7 +3,7 @@ import PageHeader from '@src/components/PageHeader';
 
 const Home: React.FC = () => (
   <Layout>
-    <PageHeader title="Welcome to your new React App!" description="Made with ❤️" />
+    <PageHeader title="Welcome to your new React App!" description="Made with Spring Hexagonal" />
     <p>
       Reference <code>README.md</code> for build instructions.
     </p>

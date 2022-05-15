@@ -1,6 +1,7 @@
 'use strict';
 const BaseGenerator = require('../base-generator');
 const _ = require('lodash');
+const chalk = require('chalk');
 
 module.exports = class extends BaseGenerator {
 
@@ -9,10 +10,6 @@ module.exports = class extends BaseGenerator {
         this.configOptions = this.options.configOptions || {};
 
 
-        this.option('image-name', {
-            type: String,
-            desc: "Image name"
-        })
     }
 
     get initializing() {
@@ -20,19 +17,16 @@ module.exports = class extends BaseGenerator {
         return {
             validateEntityName() {
                 const context = this.context;
-                console.log(`EntityName: ${this.options.entityName}, ImageName: ${this.options.imageName}`);
+                console.log(`EntityName: ${this.options.entityName}`);
                 //this.env.error("The entity name is invalid");
             }
         }
     }
 
-    /*get prompting() {
-        return prompts.prompting;
-    }*/
 
     configuring() {
         this.configOptions = Object.assign({}, this.configOptions, this.config.getAll());
-        this.configOptions.imageName = this.options['image-name'];
+        this.configOptions.imageName = this.options.entityName;
         this.configOptions.entityName = this.options.entityName;
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
     }

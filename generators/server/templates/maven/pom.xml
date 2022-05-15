@@ -32,7 +32,6 @@
         <awaitility.version><%= AWAITILITY_VERSION %></awaitility.version>
 
         <project.testresult.directory>${project.build.directory}/test-results</project.testresult.directory>
-        <spotless.version><%= MAVEN_SPOTLESS_PLUGIN_VERSION %></spotless.version>
         <dependency-check-maven.version><%= MAVEN_DEPENDENCY_CHECK_PLUGIN_VERSION %></dependency-check-maven.version>
         <properties-maven-plugin.version><%= MAVEN_PROPERTIES_PLUGIN_VERSION %></properties-maven-plugin.version>
         <maven-failsafe-plugin.version><%= MAVEN_FAILSAFE_PLUGIN_VERSION %></maven-failsafe-plugin.version>
@@ -169,6 +168,12 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit</artifactId>
+            <version>0.23.1</version>
             <scope>test</scope>
         </dependency>
         <%_ if (databaseType === 'postgresql') { _%>
@@ -310,26 +315,24 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>com.diffplug.spotless</groupId>
-                <artifactId>spotless-maven-plugin</artifactId>
-                <version>${spotless.version}</version>
-                <configuration>
-                    <java>
-                        <googleJavaFormat>
-                            <version>1.15.0</version>
-                            <style>AOSP</style>
-                        </googleJavaFormat>
-                    </java>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.2.1</version>
+				<configuration>
+					<from>
+						<image>openjdk:17-jdk-slim-buster</image>
+					</from>
+					<to>
+						<image><%= appName %>/${project.artifactId}:latest</image>
+					</to>
+					<container>
+						<jvmFlags>
+							<jvmFlag>-Xms256m</jvmFlag>
+							<jvmFlag>-Xmx512m</jvmFlag>
+						</jvmFlags>
+					</container>
+				</configuration>
+			</plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -411,18 +414,6 @@
                 <configuration>
                     <failOnError>false</failOnError>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>${sonar-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>sonar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

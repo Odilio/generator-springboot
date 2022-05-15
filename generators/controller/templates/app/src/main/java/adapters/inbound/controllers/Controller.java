@@ -56,7 +56,7 @@ public class <%= entityName %>Controller {
 
     @DeleteMapping("/v1/{id}")
     public ResponseEntity<HttpStatus> delete<%= entityName %>(@PathVariable Long id) {
-        customerService.removerCustomer(id);
+        <%= entityVarName %>Service.remover<%= entityName %>(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }

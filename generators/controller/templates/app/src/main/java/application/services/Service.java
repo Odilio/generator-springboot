@@ -29,7 +29,7 @@ public class <%= entityName %>Service implements <%= entityName %>ServicePort{
     }
 
     public <%= entityName %>Mapper buscarPorCodigo(Long id) {
-        return (CustomerMapper)Converter.toModel(<%= entityVarName %>Repository.findById(id).get(), CustomerMapper.class);
+        return (<%= entityName %>Mapper)Converter.toModel(<%= entityVarName %>Repository.findById(id).get(), <%= entityName %>Mapper.class);
     }
 
     public <%= entityName %>Mapper salvar<%= entityName %>(<%= entityName %>Mapper <%= entityVarName %>) {

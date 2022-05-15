@@ -4,8 +4,9 @@ A Yeoman generator for generating Microservices with SpringBoot in Hexagonal Arc
 ## How to use?
 
 ```
+> npm install -g yo
 > npm i generator-springboot-hexagonal
-> yo generator-springboot-hexagonal
+> yo springboot-hexagonal
 ```
 
 ## Features
@@ -18,8 +19,10 @@ A Yeoman generator for generating Microservices with SpringBoot in Hexagonal Arc
 * Kubernetes
 * Flyway or Liquibase data migration support
 * SpringBoot Actuator configuration
+* ReactJS starter
 * TestContainers integration
 * JUnit 5 
+* ArchUnit
 * Localstack configuration
 
 ### Generate SpringBoot Microservice
@@ -48,7 +51,7 @@ This will generate:
 
 `myservice> yo springboot-hexagonal:rabbitmq Customer --queue-name customers`
 
-`myservice> yo springboot-hexagonal:kubernetes --image-name customers`
+`myservice> yo springboot-hexagonal:kubernetes`
 
 `myservice> yo springboot-hexagonal:react` 
 this command will generate a basic react client project 
@@ -74,3 +77,11 @@ myservice> yo springboot-hexagonal:grpc
 myservice> yo springboot-hexagonal:mail
 
 myservice> yo springboot-hexagonal:reactadmin
+
+## Contacts
+
+https://www.linkedin.com/in/odilio-noronha-filho/
+
+https://medium.com/rapaduratech
+
+odilionoronha@gmail.com
