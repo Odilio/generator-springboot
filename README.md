@@ -59,6 +59,8 @@ see more in https://spark-life.gitbook.io/spring-hexagonal/generators/kubernetes
 `myservice> yo springboot-hexagonal:react` 
 see more in https://spark-life.gitbook.io/spring-hexagonal/generators/react
 
+`myservice> yo springboot-hexagonal:security` - in dev
+
 ## Local Development Setup
 
 ```
