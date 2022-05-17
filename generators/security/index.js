@@ -42,9 +42,7 @@ module.exports = class extends BaseGenerator {
         this.configOptions.entityName = this.options.entityName;
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
         this.configOptions.tableName = _.lowerCase(this.options.entityName)+'s';
-        this.configOptions.supportDatabaseSequences =
-            this.configOptions.databaseType === 'h2'
-            || this.configOptions.databaseType === 'postgresql';
+       
     }
 
     writing() {
@@ -61,15 +59,13 @@ module.exports = class extends BaseGenerator {
         const mainJavaTemplates = [
             {src: 'adapters/inbound/controllers/Controller.java', dest: 'adapters/inbound/controllers/'+configOptions.entityName+'Controller.java'},
             {src: 'adapters/entities/Entity.java', dest: 'adapters/entities/'+configOptions.entityName+'.java'},
-            {src: 'adapters/outbound/repositories/Repository.java', dest: 'adapters/outbound/repositories/'+configOptions.entityName+'Repository.java'},
+            {src: 'adapters/outbound/repositories/RoleRepository.java', dest: 'adapters/outbound/repositories/RoleRepository.java'},
+            {src: 'adapters/outbound/repositories/UserRepository.java', dest: 'adapters/outbound/repositories/UserRepository.java'},
             {src: 'adapters/outbound/PersistenceAdapter.java', dest: 'adapters/outbound/'+configOptions.entityName+'PersistenceAdapter.java'},
             {src: 'adapters/dto/Entity.java', dest: 'adapters/dto/'+configOptions.entityName+'DTO.java'},
             {src: 'adapters/mapper/Entity.java', dest: 'adapters/mapper/'+configOptions.entityName+'Mapper.java'},
             {src: 'adapters/mapper/Converter.java', dest: 'adapters/mapper/Converter.java'},
             {src: 'application/services/Service.java', dest: 'application/services/'+configOptions.entityName+'Service.java'},
-            {src: 'ports/in/Port.java', dest: 'ports/in/'+configOptions.entityName+'ServicePort.java'},
-            {src: 'ports/out/Port.java', dest: 'ports/out/'+configOptions.entityName+'PersistencePort.java'},
-
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
