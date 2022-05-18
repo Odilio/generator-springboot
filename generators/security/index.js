@@ -61,7 +61,13 @@ module.exports = class extends BaseGenerator {
             {src: 'adapters/entities/Entity.java', dest: 'adapters/entities/'+configOptions.entityName+'.java'},
             {src: 'adapters/outbound/repositories/RoleRepository.java', dest: 'adapters/outbound/repositories/RoleRepository.java'},
             {src: 'adapters/outbound/repositories/UserRepository.java', dest: 'adapters/outbound/repositories/UserRepository.java'},
-            {src: 'adapters/outbound/PersistenceAdapter.java', dest: 'adapters/outbound/'+configOptions.entityName+'PersistenceAdapter.java'},
+            {src: 'adapters/outbound/RoleRepositoryAdapter.java', dest: 'adapters/outbound/RoleRepositoryAdapter.java'},
+            {src: 'adapters/outbound/UserRepositoryAdapter.java', dest: 'adapters/outbound/UserRepositoryAdapter.java'},
+            {src: 'ports/out/RoleRepositoryPort.java', dest: 'ports/out/RoleRepositoryPort.java'},
+            {src: 'ports/out/UserRepositoryPort.java', dest: 'ports/out/UserRepositoryPort.java'},
+            {src: 'ports/in/RoleServicePort.java', dest: 'ports/in/RoleServicePort.java'},
+            {src: 'ports/in/UserServicePort.java', dest: 'ports/in/UserServicePort.java'},
+            {src: 'adapters/outbound/repositories/UserRepository.java', dest: 'adapters/outbound/repositories/UserRepository.java'},
             {src: 'adapters/dto/Entity.java', dest: 'adapters/dto/'+configOptions.entityName+'DTO.java'},
             {src: 'adapters/mapper/Entity.java', dest: 'adapters/mapper/'+configOptions.entityName+'Mapper.java'},
             {src: 'adapters/mapper/Converter.java', dest: 'adapters/mapper/Converter.java'},
@@ -69,11 +75,6 @@ module.exports = class extends BaseGenerator {
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
-        const testJavaTemplates = [
-            {src: 'adapters/inbound/controllers/ControllerTest.java', dest: 'adapters/inbound/controllers/'+configOptions.entityName+'ControllerTest.java'},
-            {src: 'adapters/inbound/controllers/ControllerIT.java', dest: 'adapters/inbound/controllers/'+configOptions.entityName+'ControllerIT.java'},
-        ];
-        this.generateTestJavaCode(configOptions, testJavaTemplates);
     }
 
     _generateDbMigrationConfig(configOptions) {
