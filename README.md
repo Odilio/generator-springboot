@@ -13,7 +13,7 @@ https://spark-life.gitbook.io/spring-hexagonal/
 
 ## Features
 
-* SpringBoot REST API with jar type packaging
+* SpringBoot REST API
 * CORS configuration
 * Swagger UI Integration
 * Spring Data JPA integration with option to select databases like MySQL, Postgresql, MariaDB etc
