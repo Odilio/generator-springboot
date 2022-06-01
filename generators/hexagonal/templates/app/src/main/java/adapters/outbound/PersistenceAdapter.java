@@ -12,7 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 @Component
-class PersistenceAdapter implements <%= entityName %>PersistencePort {
+class <%= entityName %>PersistenceAdapter implements <%= entityName %>PersistencePort {
 
     @Autowired
     private <%= entityName %>Repository boilerplateRepository;

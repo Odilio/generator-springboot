@@ -1,11 +1,9 @@
 package <%= packageName %>.application.services;
 
-import <%= packageName %>.adapters.entities.<%= entityName %>;
 import <%= packageName %>.ports.in.<%= entityName %>ServicePort;
 import <%= packageName %>.ports.out.<%= entityName %>PersistencePort;
 import <%= packageName %>.adapters.mapper.<%= entityName %>Mapper;
 import <%= packageName %>.adapters.mapper.Converter;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
