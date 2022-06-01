@@ -47,9 +47,9 @@ public class <%= entityName %>Controller {
                 .buscarPorCodigo(id), <%= entityName %>DTO.class));
     }
 
-    @PostMapping
+    @PostMapping("/v1/")
     @ResponseStatus(HttpStatus.CREATED)
-    public void create<%= entityName %>(@RequestBody @Validated <%= entityName %> <%= entityVarName %>DTO) {
+    public void create<%= entityName %>(@RequestBody @Validated <%= entityName %>DTO <%= entityVarName %>DTO) {
         <%= entityName %>Mapper <%= entityVarName %> = (<%= entityName %>Mapper) Converter.toModel(<%= entityVarName %>DTO, <%= entityName %>Mapper.class);
         <%= entityVarName %>Service.salvar<%= entityName %>(<%= entityVarName %>);
     }
