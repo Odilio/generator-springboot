@@ -1,6 +1,6 @@
 {
   "name": "generator-springboot-hexagonal",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A Yeoman generator for generating SpringBoot microservices in Hexagonal Architecture",
   "keywords": [
     "yeoman-generator",
