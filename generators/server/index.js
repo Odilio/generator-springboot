@@ -161,7 +161,6 @@ module.exports = class extends BaseGenerator {
             'Application.java',
             'adapters/config/SwaggerConfig.java',
             'adapters/config/ApplicationProperties.java',
-            'adapters/config/logging/LoggingAspect.java',
             'utils/AppConstants.java'
         ];
         if(configOptions.features.includes("localstack")) {

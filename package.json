@@ -27,7 +27,7 @@
   "homepage": "https://spark-life.gitbook.io/spring-hexagonal/",
   "dependencies": {
     "chalk": "4.1.2",
-    "generator-springboot-hexagonal": "^0.1.4",
+    "generator-springboot-hexagonal": "^0.1.5",
     "lodash": "4.17.21",
     "yeoman-generator": "5.6.1"
   },

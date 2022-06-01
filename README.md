@@ -27,10 +27,6 @@ https://spark-life.gitbook.io/spring-hexagonal/
 * ArchUnit
 * Localstack configuration
 
-### Generate SpringBoot Microservice
-
-![Microservice Generation](docs/server-generation-1.png)
-![Microservice Generation](docs/server-generation-2.png)
 
 ### Generate REST API with CRUD operations
 You can generate REST API with CRUD operation using the following command:
@@ -47,11 +43,10 @@ This will generate:
 * Unit and Integration Tests for REST Controller
 * Flyway or Liquibase migration to create table
 
-![CRUD Generation](docs/crud-generation.png)
-
 # Other commands
 
 `myservice> yo springboot-hexagonal:rabbitmq Customer --queue-name customers`
+see more in https://app.gitbook.com/s/rLLGeeSO6PcRKC2RD6tD/generators/rabbit-mq
 
 `myservice> yo springboot-hexagonal:kubernetes`
 see more in https://spark-life.gitbook.io/spring-hexagonal/generators/kubernetes
