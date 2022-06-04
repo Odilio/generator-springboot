@@ -39,8 +39,8 @@ module.exports = class extends BaseGenerator {
     writing() {
         this._generateAppCode(this.configOptions);
         this._generateDbMigrationConfig(this.configOptions)
-        this._copyMavenWrapper(configOptions);
-        this._generateMavenPOMXml(configOptions);
+        this._copyMavenWrapper(this.configOptions);
+        this._generateMavenPOMXml(this.configOptions);
     }
 
     end() {
