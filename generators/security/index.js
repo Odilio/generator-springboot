@@ -73,7 +73,6 @@ module.exports = class extends BaseGenerator {
             {src: 'adapters/dto/JwtResponse.java', dest: 'adapters/dto/JwtResponse.java'},
             {src: 'adapters/mapper/Entity.java', dest: 'adapters/mapper/'+configOptions.entityName+'Mapper.java'},
             {src: 'adapters/mapper/Converter.java', dest: 'adapters/mapper/Converter.java'},
-            {src: 'application/services/Service.java', dest: 'application/services/'+configOptions.entityName+'Service.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
