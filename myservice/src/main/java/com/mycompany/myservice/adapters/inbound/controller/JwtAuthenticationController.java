@@ -1,4 +1,4 @@
-package <%= packageName %>.adapters.inbound.controller;
+package com.mycompany.myservice.adapters.inbound.controller;
 
 import java.util.Objects;
 
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import <%= packageName %>.adapters.security.jwt.JwtTokenUtil;
-import <%= packageName %>.adapters.dto.JwtRequest;
-import <%= packageName %>.adapters.dto.JwtResponse;
+import com.mycompany.myservice.adapters.security.jwt.JwtTokenUtil;
+import com.mycompany.myservice.adapters.dto.JwtRequest;
+import com.mycompany.myservice.adapters.dto.JwtResponse;
 
 
 @RestController

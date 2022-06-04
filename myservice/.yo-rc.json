@@ -1,0 +1,12 @@
+{
+  "generator-springboot-hexagonal": {
+    "appName": "myservice",
+    "packageName": "com.mycompany.myservice",
+    "databaseType": "postgresql",
+    "dbMigrationTool": "flywaydb",
+    "buildTool": "maven",
+    "packageFolder": "com/mycompany/myservice",
+    "features": [],
+    "flywayMigrationCounter": 2
+  }
+}

@@ -1,4 +1,4 @@
-package <%= packageName %>.adapters.entities;
+package com.mycompany.myservice.adapters.entities;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,12 +9,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "<%= tableName %>", 
+@Table(name = Auth, 
     uniqueConstraints = { 
       @UniqueConstraint(columnNames = "username"),
       @UniqueConstraint(columnNames = "email") 
     })
-public class <%= entityName %> {
+public class Auth {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -38,10 +38,10 @@ public class <%= entityName %> {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles = new HashSet<>();
 
-  public <%= entityName %>() {
+  public User() {
   }
 
-  public <%= entityName %>(String username, String email, String password) {
+  public User(String username, String email, String password) {
     this.username = username;
     this.email = email;
     this.password = password;
