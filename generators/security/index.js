@@ -9,16 +9,7 @@ module.exports = class extends BaseGenerator {
         super(args, opts);
         this.configOptions = this.options.configOptions || {};
 
-        this.argument("entityName", {
-            type: String,
-            required: true,
-            description: "Entity name"
-        });
 
-        this.option('base-path', {
-            type: String,
-            desc: "Base URL path for REST Controller"
-        })
     }
 
     get initializing() {
@@ -26,7 +17,6 @@ module.exports = class extends BaseGenerator {
         return {
             validateEntityName() {
                 const context = this.context;
-                console.log(`EntityName: ${this.options.entityName}, basePath: ${this.options.basePath}`);
                 //this.env.error("The entity name is invalid");
             }
         }
@@ -39,7 +29,7 @@ module.exports = class extends BaseGenerator {
     configuring() {
         this.configOptions = Object.assign({}, this.configOptions, this.config.getAll());
         this.configOptions.basePath = this.options['base-path'];
-        this.configOptions.entityName = this.options.entityName;
+        this.configOptions.entityName = 'Auth';
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
         this.configOptions.security = true;
         this.configOptions.tableName = _.lowerCase(this.options.entityName)+'s';
