@@ -33,6 +33,7 @@ module.exports = class extends BaseGenerator {
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
         this.configOptions.security = true;
         this.configOptions.tableName = _.lowerCase(this.options.entityName)+'s';
+        Object.assign(this.configOptions, constants);
        
     }
 
