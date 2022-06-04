@@ -76,11 +76,10 @@ module.exports = class extends BaseGenerator {
     _generateBrokerClass(configOptions) {
 
         if(configOptions.brokerTool === 'consumer') {
-            this._generateFlywayMigration(configOptions)
+
         }
 
         if(configOptions.brokerTool === 'producer') {
-            this._generateLiquibaseMigration(configOptions);
         }
     }
 

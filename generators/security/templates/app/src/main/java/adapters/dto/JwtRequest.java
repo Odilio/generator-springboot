@@ -1,4 +1,4 @@
-package <%= packageName %>.dto;
+package <%= packageName %>.adapters.dto;
 
 import java.io.Serializable;
 

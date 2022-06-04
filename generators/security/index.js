@@ -39,6 +39,8 @@ module.exports = class extends BaseGenerator {
     writing() {
         this._generateAppCode(this.configOptions);
         this._generateDbMigrationConfig(this.configOptions)
+        this._copyMavenWrapper(configOptions);
+        this._generateMavenPOMXml(configOptions);
     }
 
     end() {
@@ -105,4 +107,36 @@ module.exports = class extends BaseGenerator {
         };
         this.config.set(flywayMigrantCounter);
     }
+
+    _copyMavenWrapper(configOptions) {
+        const commonMavenConfigDir = '../../common/files/maven/';
+
+        ['mvnw', 'mvnw.cmd'].forEach(tmpl => {
+            this.fs.copyTpl(
+                this.templatePath(commonMavenConfigDir + tmpl),
+                this.destinationPath(tmpl)
+            );
+        });
+
+        this.fs.copyTpl(
+            this.templatePath(commonMavenConfigDir + 'gitignore'),
+            this.destinationPath('.gitignore')
+        );
+
+        this.fs.copy(
+            this.templatePath(commonMavenConfigDir + '.mvn'),
+            this.destinationPath('.mvn')
+        );
+
+    }
+
+    _generateMavenPOMXml(configOptions) {
+        const mavenConfigDir = 'maven/';
+        this.fs.copyTpl(
+            this.templatePath(mavenConfigDir + 'pom.xml'),
+            this.destinationPath('pom.xml'),
+            configOptions
+        );
+    }
+
 };
