@@ -2,13 +2,11 @@ package <%= packageName %>.ports.out;
 
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-import <%= packageName %>.adapters.entities.User;
+import <%= packageName %>.adapters.entities.<%= entityName %>;
 
-public interface UserRepositoryPort {
-  Optional<User> findByUsername(String username);
+public interface <%= entityName %>RepositoryPort {
+  Optional<<%= entityName %>> findByUsername(String username);
 
   Boolean existsByUsername(String username);
 

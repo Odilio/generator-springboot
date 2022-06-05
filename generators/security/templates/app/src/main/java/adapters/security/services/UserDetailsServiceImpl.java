@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import <%= packageName %>.adapters.entities.<%= entityName %>;
-import <%= packageName %>.adapters.repository.UserRepository;
+import <%= packageName %>.adapters.outbound.repository.<%= entityName %>Repository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
   @Autowired
-  UserRepository userRepository;
+  <%= entityName %>Repository userRepository;
 
   @Override
   @Transactional

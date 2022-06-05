@@ -1,6 +1,6 @@
 {
   "name": "generator-springboot-hexagonal",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "A Yeoman generator for generating SpringBoot microservices in Hexagonal Architecture",
   "keywords": [
     "yeoman-generator",
@@ -27,7 +27,7 @@
   "homepage": "https://spark-life.gitbook.io/spring-hexagonal/",
   "dependencies": {
     "chalk": "4.1.2",
-    "generator-springboot-hexagonal": "^0.2.8",
+    "generator-springboot-hexagonal": "^0.2.9",
     "lodash": "4.17.21",
     "yeoman-generator": "5.6.1"
   },

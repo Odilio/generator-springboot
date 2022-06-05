@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = Auth, 
+@Table(name = "s", 
     uniqueConstraints = { 
       @UniqueConstraint(columnNames = "username"),
       @UniqueConstraint(columnNames = "email") 
@@ -38,10 +38,10 @@ public class Auth {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles = new HashSet<>();
 
-  public User() {
+  public Auth() {
   }
 
-  public User(String username, String email, String password) {
+  public Auth(String username, String email, String password) {
     this.username = username;
     this.email = email;
     this.password = password;

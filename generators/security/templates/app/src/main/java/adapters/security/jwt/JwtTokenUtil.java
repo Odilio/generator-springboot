@@ -1,4 +1,4 @@
-package <%= packageName %>.security.jwt;
+package <%= packageName %>.adapters.security.jwt;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,17 +1,19 @@
 package <%= packageName %>.adapters.outbound;
 
 import java.util.Optional;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
+import <%= packageName %>.ports.out.<%= entityName %>RepositoryPort;
 import <%= packageName %>.adapters.entities.<%= entityName %>;
 
-@Repository
-public class UserRepositoryAdapter implements JpaRepository<<%= entityName %>, Long> {
-  Optional<<%= entityName %>> findByUsername(String username);
+public class <%= entityName %>RepositoryAdapter implements <%= entityName %>RepositoryPort {
+  public Optional<<%= entityName %>> findByUsername(String username){
+    return null;
+  };
 
-  Boolean existsByUsername(String username);
+  public Boolean existsByUsername(String username){
+    return null;
+  };
 
-  Boolean existsByEmail(String email);
+  public Boolean existsByEmail(String email){
+    return null;
+  };
 }

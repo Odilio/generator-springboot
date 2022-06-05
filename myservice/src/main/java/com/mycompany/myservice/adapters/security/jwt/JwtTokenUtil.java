@@ -1,4 +1,4 @@
-package com.mycompany.myservice.security.jwt;
+package com.mycompany.myservice.adapters.security.jwt;
 
 import java.io.Serializable;
 import java.util.Date;
