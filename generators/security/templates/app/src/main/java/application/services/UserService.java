@@ -1,18 +1,26 @@
 package <%= packageName %>.application.services;
 
 import java.util.Optional;
-import <%= packageName %>.port.in.<%= entityName %>ServicePort;
+import <%= packageName %>.ports.in.<%= entityName %>ServicePort;
 import <%= packageName %>.adapters.entities.<%= entityName %>;
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class <%= entityName %>Service implements <%= entityName %>ServicePort {
 
   @Autowired
-  private lateinit var repository: <%= entityName %>RepositoryPort
+  private <%= entityName %>RepositoryPort userRepository;
 
-  Optional<<%= entityName %>> findByUsername(String username);
+  public Optional<<%= entityName %>> findByUsername(String username){
+    return null;
+  }
 
-  Boolean existsByUsername(String username);
+  public Boolean existsByUsername(String username){
+    return null;
+  }
 
-  Boolean existsByEmail(String email);
+  public Boolean existsByEmail(String email){
+    return null;
+  }
 }

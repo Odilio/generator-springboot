@@ -8,7 +8,7 @@ import <%= packageName %>.adapters.entities.<%= entityName %>;
 public class <%= entityName %>RepositoryAdapter implements <%= entityName %>RepositoryPort {
 
   @Autowired
-  private lateinit var repository: <%= entityName %>Repository
+  private <%= entityName %>Repository userRepository;
 
   public Optional<<%= entityName %>> findByUsername(String username){
     return null;
