@@ -23,6 +23,7 @@ import <%= packageName %>.adapters.dto.JwtResponse;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/api")
 public class JwtAuthenticationController {
 
 	@Autowired
@@ -34,7 +35,7 @@ public class JwtAuthenticationController {
 	@Autowired
 	private UserDetailsService jwtInMemoryUserDetailsService;
 
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	@RequestMapping(value = "/auth", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
 			throws Exception {
 

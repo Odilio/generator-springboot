@@ -58,10 +58,6 @@ function prompting() {
                     name: 'FlywayDB'
                 },
                 {
-                    value: 'liquibase',
-                    name: 'Liquibase'
-                },
-                {
                     value: 'none',
                     name: 'None'
                 }

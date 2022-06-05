@@ -9,6 +9,6 @@ import com.mycompany.myservice.adapters.entities.ERole;
 import com.mycompany.myservice.adapters.entities.Role;
 
 @Repository
-public interface RoleRepositoryAdapter extends JpaRepository<Role, Long> {
+public class RoleRepositoryAdapter implements JpaRepository<Role, Long> {
   Optional<Role> findByName(ERole name);
 }

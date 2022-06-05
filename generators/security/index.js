@@ -101,12 +101,10 @@ module.exports = class extends BaseGenerator {
         if(vendor === "mariadb") {
             vendor = "mysql";
         }
-        const scriptTemplate = configOptions.supportDatabaseSequences ?
-            "V1__new_table_with_seq.sql" : "V1__new_table_no_seq.sql";
 
         this.fs.copyTpl(
             this.templatePath('app/src/main/resources/db/migration/flyway/V1__security.sql'),
-            this.destinationPath('src/main/resources/db/migration/h2/V'+counter+'__create_security_table.sql'),
+            this.destinationPath('src/main/resources/db/migration/h2/V1__create_security_table.sql'),
             configOptions
         );
        
