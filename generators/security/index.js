@@ -66,17 +66,12 @@ module.exports = class extends BaseGenerator {
             {src: 'adapters/entities/Role.java', dest: 'adapters/entities/Role.java'},
             {src: 'adapters/entities/ERole.java', dest: 'adapters/entities/ERole.java'},
 
-            {src: 'adapters/outbound/repository/RoleRepository.java', dest: 'adapters/outbound/repository/RoleRepository.java'},
-            {src: 'adapters/outbound/RoleRepositoryAdapter.java', dest: 'adapters/outbound/RoleRepositoryAdapter.java'},
             {src: 'adapters/outbound/UserRepositoryAdapter.java', dest: 'adapters/outbound/'+configOptions.entityName+'RepositoryAdapter.java'},
             {src: 'adapters/outbound/repository/UserRepository.java', dest: 'adapters/outbound/repository/'+configOptions.entityName+'Repository.java'},
 
             {src: 'application/services/UserService.java', dest: 'application/services/'+configOptions.entityName+'Service.java'},
-            {src: 'application/services/RoleService.java', dest: 'application/services/RoleService.java'},
 
-            {src: 'ports/out/RoleRepositoryPort.java', dest: 'ports/out/RoleRepositoryPort.java'},
             {src: 'ports/out/RepositoryPort.java', dest: 'ports/out/'+configOptions.entityName+'RepositoryPort.java'},
-            {src: 'ports/in/RoleServicePort.java', dest: 'ports/in/RoleServicePort.java'},
             {src: 'ports/in/ServicePort.java', dest: 'ports/in/'+configOptions.entityName+'ServicePort.java'},
            
             {src: 'adapters/dto/Entity.java', dest: 'adapters/dto/'+configOptions.entityName+'DTO.java'},
