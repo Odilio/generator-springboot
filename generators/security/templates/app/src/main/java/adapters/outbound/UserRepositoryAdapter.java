@@ -1,10 +1,15 @@
 package <%= packageName %>.adapters.outbound;
 
 import java.util.Optional;
+import <%= packageName %>.adapters.outbound.repository.<%= entityName %>Repository;
 import <%= packageName %>.ports.out.<%= entityName %>RepositoryPort;
 import <%= packageName %>.adapters.entities.<%= entityName %>;
 
 public class <%= entityName %>RepositoryAdapter implements <%= entityName %>RepositoryPort {
+
+  @Autowired
+  private lateinit var repository: <%= entityName %>Repository
+
   public Optional<<%= entityName %>> findByUsername(String username){
     return null;
   };
