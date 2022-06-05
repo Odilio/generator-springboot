@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.myservice.adapters.entities.Auth;
-import com.mycompany.myservice.adapters.outbound.repository.AuthRepository;
+import com.mycompany.myservice.adapters.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

@@ -212,20 +212,6 @@ module.exports = class extends BaseGenerator {
             Object.assign(configOptions, flywayMigrantCounter);
             this.config.set(flywayMigrantCounter);
         }
-
-        if(configOptions.dbMigrationTool === 'liquibase') {
-            const resTemplates = [
-                {src: 'db/migration/liquibase/liquibase-changelog.xml', dest: 'db/migration/liquibase-changelog.xml'},
-                {src: 'db/migration/liquibase/changelog/01-init.xml', dest: 'db/migration/changelog/01-init.xml'},
-
-            ];
-            this.generateFiles(configOptions, resTemplates, 'app/','src/main/resources/');
-            const liquibaseMigrantCounter = {
-                [constants.KEY_LIQUIBASE_MIGRATION_COUNTER]: 1
-            };
-            Object.assign(configOptions, liquibaseMigrantCounter);
-            this.config.set(liquibaseMigrantCounter);
-        }
     }
 
     _generateLocalstackConfig(configOptions) {

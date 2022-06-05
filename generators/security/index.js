@@ -71,13 +71,14 @@ module.exports = class extends BaseGenerator {
             {src: 'adapters/outbound/UserRepositoryAdapter.java', dest: 'adapters/outbound/'+configOptions.entityName+'RepositoryAdapter.java'},
             {src: 'adapters/outbound/repository/UserRepository.java', dest: 'adapters/outbound/repository/'+configOptions.entityName+'Repository.java'},
 
-            {src: 'application/services/UseService.java', dest: 'application/services/'+configOptions.entityName+'Service.java'},
+            {src: 'application/services/UserService.java', dest: 'application/services/'+configOptions.entityName+'Service.java'},
             {src: 'application/services/RoleService.java', dest: 'application/services/RoleService.java'},
 
             {src: 'ports/out/RoleRepositoryPort.java', dest: 'ports/out/RoleRepositoryPort.java'},
-            {src: 'ports/out/UserRepositoryPort.java', dest: 'ports/out/'+configOptions.entityName+'RepositoryPort.java'},
+            {src: 'ports/out/RepositoryPort.java', dest: 'ports/out/'+configOptions.entityName+'RepositoryPort.java'},
             {src: 'ports/in/RoleServicePort.java', dest: 'ports/in/RoleServicePort.java'},
-            {src: 'ports/in/UserServicePort.java', dest: 'ports/in/'+configOptions.entityName+'ServicePort.java'},
+            {src: 'ports/in/ServicePort.java', dest: 'ports/in/'+configOptions.entityName+'ServicePort.java'},
+           
             {src: 'adapters/dto/Entity.java', dest: 'adapters/dto/'+configOptions.entityName+'DTO.java'},
             {src: 'adapters/dto/JwtRequest.java', dest: 'adapters/dto/JwtRequest.java'},
             {src: 'adapters/dto/JwtResponse.java', dest: 'adapters/dto/JwtResponse.java'},
@@ -107,6 +108,7 @@ module.exports = class extends BaseGenerator {
             this.destinationPath('src/main/resources/db/migration/h2/V1__create_security_table.sql'),
             configOptions
         );
+
        
         const flywayMigrantCounter = {
             [constants.KEY_FLYWAY_MIGRATION_COUNTER]: counter
