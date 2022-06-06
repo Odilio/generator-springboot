@@ -160,8 +160,7 @@ module.exports = class extends BaseGenerator {
         const mainJavaTemplates = [
             'Application.java',
             'adapters/config/SwaggerConfig.java',
-            'adapters/config/ApplicationProperties.java',
-            'utils/AppConstants.java'
+            'adapters/config/ApplicationProperties.java'
         ];
         if(configOptions.features.includes("localstack")) {
             mainJavaTemplates.push('adapters/config/AwsConfig.java');

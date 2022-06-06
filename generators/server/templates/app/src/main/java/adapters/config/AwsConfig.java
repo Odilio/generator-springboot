@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile({PROFILE_NOT_TEST})
+@Profile({"!test"})
 public class AwsConfig {
     @Autowired private ApplicationProperties properties;
 
