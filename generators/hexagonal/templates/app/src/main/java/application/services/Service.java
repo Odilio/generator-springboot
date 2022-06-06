@@ -22,19 +22,19 @@ public class <%= entityName %>Service implements <%= entityName %>ServicePort{
         this.<%= entityVarName %>Repository = <%= entityVarName %>Repository;
     }
 
-    public Page<<%= entityName %>Mapper> listarTodos(Pageable page) {
+    public Page<<%= entityName %>Mapper> findAll(Pageable page) {
         return new PageImpl(Converter.toCollection(<%= entityVarName %>Repository.findAll(page).getContent(), <%= entityName %>Mapper.class));
     }
 
-    public <%= entityName %>Mapper buscarPorCodigo(Long id) {
+    public <%= entityName %>Mapper find(Long id) {
         return (<%= entityName %>Mapper)Converter.toModel(<%= entityVarName %>Repository.findById(id).get(), <%= entityName %>Mapper.class);
     }
 
-    public <%= entityName %>Mapper salvar<%= entityName %>(<%= entityName %>Mapper <%= entityVarName %>) {
+    public <%= entityName %>Mapper save<%= entityName %>(<%= entityName %>Mapper <%= entityVarName %>) {
         return (<%= entityName %>Mapper)Converter.toModel(<%= entityVarName %>Repository.save(<%= entityVarName %>), <%= entityName %>Mapper.class );
     }
 
-    public void remover<%= entityName %>(Long id) {
+    public void delete<%= entityName %>(Long id) {
         <%= entityVarName %>Repository.deleteById(id);
     }
 }

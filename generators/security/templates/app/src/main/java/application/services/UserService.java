@@ -1,6 +1,7 @@
 package <%= packageName %>.application.services;
 
 import java.util.Optional;
+import <%= packageName %>.ports.out.<%= entityName %>RepositoryPort;
 import <%= packageName %>.ports.in.<%= entityName %>ServicePort;
 import <%= packageName %>.adapters.entities.<%= entityName %>;
 import org.springframework.stereotype.Component;

@@ -1,8 +1,6 @@
 package <%= packageName %>.adapters.inbound.controllers;
 
 import <%= packageName %>.adapters.dto.<%= entityName %>DTO;
-import <%= packageName %>.adapters.entities.<%= entityName %>;
-import <%= packageName %>.application.services.<%= entityName %>Service;
 import <%= packageName %>.adapters.mapper.<%= entityName %>Mapper;
 import <%= packageName %>.adapters.mapper.Converter;
 import <%= packageName %>.ports.in.<%= entityName %>ServicePort;
@@ -38,25 +36,25 @@ public class <%= entityName %>Controller {
 
     @GetMapping("/v1/")
     public Page<<%= entityName %>DTO> getAll<%= entityName %>s(Pageable page) {
-        return new PageImpl(Converter.toCollection(<%= entityVarName %>Service.listarTodos(page).getContent(), <%= entityName %>DTO.class)) ;
+        return new PageImpl(Converter.toCollection(<%= entityVarName %>Service.findAll(page).getContent(), <%= entityName %>DTO.class)) ;
     }
 
     @GetMapping("/v1/{id}")
     public ResponseEntity<<%= entityName %>DTO> get<%= entityName %>ById(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body((<%= entityName %>DTO)Converter.toModel(<%= entityVarName %>Service
-                .buscarPorCodigo(id), <%= entityName %>DTO.class));
+                .find(id), <%= entityName %>DTO.class));
     }
 
     @PostMapping("/v1/")
     @ResponseStatus(HttpStatus.CREATED)
     public void create<%= entityName %>(@RequestBody @Validated <%= entityName %>DTO <%= entityVarName %>DTO) {
         <%= entityName %>Mapper <%= entityVarName %> = (<%= entityName %>Mapper) Converter.toModel(<%= entityVarName %>DTO, <%= entityName %>Mapper.class);
-        <%= entityVarName %>Service.salvar<%= entityName %>(<%= entityVarName %>);
+        <%= entityVarName %>Service.save<%= entityName %>(<%= entityVarName %>);
     }
 
     @DeleteMapping("/v1/{id}")
     public ResponseEntity<HttpStatus> delete<%= entityName %>(@PathVariable Long id) {
-        <%= entityVarName %>Service.remover<%= entityName %>(id);
+        <%= entityVarName %>Service.delete<%= entityName %>(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }

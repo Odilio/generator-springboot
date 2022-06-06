@@ -1,4 +1,4 @@
-package <%= packageName %>.adapters.inbound.controller;
+package <%= packageName %>.adapters.inbound.controllers;
 
 import java.util.Objects;
 

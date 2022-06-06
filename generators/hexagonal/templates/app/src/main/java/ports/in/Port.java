@@ -6,12 +6,12 @@ import org.springframework.data.domain.Pageable;
 
 public interface <%= entityName %>ServicePort {
 
-    public <%= entityName %>Mapper buscarPorCodigo(Long codigo );
+    public <%= entityName %>Mapper find(Long codigo );
 
-    public Page<<%= entityName %>Mapper> listarTodos(Pageable page );
+    public Page<<%= entityName %>Mapper> findAll(Pageable page );
 
-    public <%= entityName %>Mapper salvar<%= entityName %>(<%= entityName %>Mapper entity);
+    public <%= entityName %>Mapper save<%= entityName %>(<%= entityName %>Mapper entity);
 
-    public void remover<%= entityName %>(Long id );
+    public void delete<%= entityName %>(Long id );
 }
 

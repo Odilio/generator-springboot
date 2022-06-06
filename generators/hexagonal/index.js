@@ -86,9 +86,6 @@ module.exports = class extends BaseGenerator {
             this._generateFlywayMigration(configOptions)
         }
 
-        if(configOptions.dbMigrationTool === 'liquibase') {
-            this._generateLiquibaseMigration(configOptions);
-        }
     }
 
     _generateFlywayMigration(configOptions) {
@@ -117,19 +114,4 @@ module.exports = class extends BaseGenerator {
         this.config.set(flywayMigrantCounter);
     }
 
-    _generateLiquibaseMigration(configOptions) {
-        const counter = configOptions[constants.KEY_LIQUIBASE_MIGRATION_COUNTER] + 1;
-        const scriptTemplate = configOptions.supportDatabaseSequences ?
-            "01-new_table_with_seq.xml" : "01-new_table_no_seq.xml";
-        this.fs.copyTpl(
-            this.templatePath('app/src/main/resources/db/migration/liquibase/changelog/'+scriptTemplate),
-            this.destinationPath('src/main/resources/db/migration/changelog/0'+counter+'-create_'+configOptions.tableName+'_table.xml'),
-            configOptions
-        );
-        const liquibaseMigrantCounter = {
-            [constants.KEY_LIQUIBASE_MIGRATION_COUNTER]: counter
-        };
-        //const updatedConfig = Object.assign({}, this.config.getAll(), liquibaseMigrantCounter);
-        this.config.set(liquibaseMigrantCounter);
-    }
 };

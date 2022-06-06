@@ -1,7 +1,5 @@
 package <%= packageName %>.adapters.inbound.controllers;
 
-import static <%= packageName %>.utils.AppConstants.PROFILE_TEST;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.hasSize;
@@ -35,7 +33,7 @@ import org.zalando.problem.jackson.ProblemModule;
 import org.zalando.problem.violations.ConstraintViolationProblemModule;
 
 @WebMvcTest(controllers = <%= entityName %>Controller.class)
-@ActiveProfiles(PROFILE_TEST)
+@ActiveProfiles("test")
 class <%= entityName %>ControllerTest {
 
     @Autowired private MockMvc mockMvc;
