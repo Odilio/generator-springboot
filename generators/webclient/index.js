@@ -15,18 +15,18 @@ module.exports = class extends BaseGenerator {
             description: "Entity name"
         });
 
-        this.option('queue-name', {
+        this.option('uri', {
             type: String,
-            desc: "Queue name"
+            desc: "Uri"
         })
     }
 
     get initializing() {
-        this.logSuccess('Generating DTO, RabbitConfig, producer and consumer');
+        this.logSuccess('Generating DTO, WebClientConfig and Integrator');
         return {
             validateEntityName() {
                 const context = this.context;
-                console.log(`EntityName: ${this.options.entityName}, QueueNam: ${this.options.basePath}`);
+                console.log(`EntityName: ${this.options.entityName}, Uri: ${this.options.basePath}`);
                 //this.env.error("The entity name is invalid");
             }
         }
@@ -38,10 +38,11 @@ module.exports = class extends BaseGenerator {
 
     configuring() {
         this.configOptions = Object.assign({}, this.configOptions, this.config.getAll());
-        this.configOptions.queueName = this.options['queue-name'];
+        this.configOptions.uri = this.options['uri'];
         this.configOptions.entityName = this.options.entityName;
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
-        this.configOptions.rabbit = true;
+        this.configOptions.rabbit = false;
+        this.configOptions.webclient = true;
         Object.assign(this.configOptions, constants);
     }
 

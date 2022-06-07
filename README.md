@@ -46,7 +46,7 @@ This will generate:
 # Other commands
 
 `myservice> yo springboot-hexagonal:rabbitmq Customer --queue-name customers`
-see more in https://app.gitbook.com/s/rLLGeeSO6PcRKC2RD6tD/generators/rabbit-mq
+see more in https://app.gitbook.com/s/rLLGeeSO6PcRKC2RD6tD/generators/rabbitmq
 
 `myservice> yo springboot-hexagonal:kubernetes`
 see more in https://spark-life.gitbook.io/spring-hexagonal/generators/kubernetes
@@ -55,6 +55,8 @@ see more in https://spark-life.gitbook.io/spring-hexagonal/generators/kubernetes
 see more in https://spark-life.gitbook.io/spring-hexagonal/generators/react
 
 `myservice> yo springboot-hexagonal:security` - in dev
+
+`myservice> yo springboot-hexagonal:webclient --uri https://testnets-api.opensea.io` - in dev
 
 ## Local Development Setup
 
