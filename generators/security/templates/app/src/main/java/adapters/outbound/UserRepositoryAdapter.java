@@ -1,7 +1,7 @@
 package <%= packageName %>.adapters.outbound;
 
 import java.util.Optional;
-import <%= packageName %>.adapters.outbound.repository.<%= entityName %>Repositories;
+import <%= packageName %>.adapters.outbound.repositories.<%= entityName %>Repositories;
 import <%= packageName %>.ports.out.<%= entityName %>RepositoryPort;
 import <%= packageName %>.adapters.entities.<%= entityName %>;
 import org.springframework.beans.factory.annotation.Autowired;

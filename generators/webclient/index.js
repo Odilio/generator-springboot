@@ -48,15 +48,10 @@ module.exports = class extends BaseGenerator {
 
 
     writing() {
-        this._generateMavenConfig(this.configOptions);
         this._generateAppCode(this.configOptions);
-        this._generateBrokerClass(this.configOptions)
     }
 
-    _generateMavenConfig(configOptions) {
-        this._copyMavenWrapper(configOptions);
-        this._generateMavenPOMXml(configOptions);
-    }
+  
 
     end() {
         //TODO; Disabling this temporarily to fix test failures.
@@ -66,53 +61,15 @@ module.exports = class extends BaseGenerator {
     _generateAppCode(configOptions) {
         const mainJavaTemplates = [
             {src: 'adapters/dto/Entity.java', dest: 'adapters/dto/'+configOptions.entityName+'DTO.java'},
-            {src: 'adapters/inbound/message/consumer/Consumer.java', dest: 'adapters/inbound/message/consumer/'+configOptions.entityName+'Consumer.java'},
-            {src: 'adapters/inbound/message/producer/Producer.java', dest: 'adapters/inbound/message/producer/'+configOptions.entityName+'Producer.java'},
-            {src: 'adapters/inbound/message/config/RabbitMQConfig.java', dest: 'adapters/inbound/message/config/RabbitMQConfig.java'},
+            {src: 'adapters/mapper/Entity.java', dest: 'adapters/mapper/'+configOptions.entityName+'Mapper.java'},
+            {src: 'adapters/mapper/Converter.java', dest: 'adapters/mapper/Converter.java'},
+            {src: 'ports/out/Port.java', dest: 'ports/out/'+configOptions.entityName+'IntegrationPort.java'},
+            {src: 'ports/in/Port.java', dest: 'ports/in/'+configOptions.entityName+'ServicePort.java'},
+            {src: 'adapters/config/WebClientConfiguration.java', dest: 'adapters/config/WebClientConfiguration.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
     }
 
-    _generateBrokerClass(configOptions) {
-
-        if(configOptions.brokerTool === 'consumer') {
-
-        }
-
-        if(configOptions.brokerTool === 'producer') {
-        }
-    }
-
-    _copyMavenWrapper(configOptions) {
-        const commonMavenConfigDir = '../../common/files/maven/';
-
-        ['mvnw', 'mvnw.cmd'].forEach(tmpl => {
-            this.fs.copyTpl(
-                this.templatePath(commonMavenConfigDir + tmpl),
-                this.destinationPath(tmpl)
-            );
-        });
-
-        this.fs.copyTpl(
-            this.templatePath(commonMavenConfigDir + 'gitignore'),
-            this.destinationPath('.gitignore')
-        );
-
-        this.fs.copy(
-            this.templatePath(commonMavenConfigDir + '.mvn'),
-            this.destinationPath('.mvn')
-        );
-
-    }
-
-    _generateMavenPOMXml(configOptions) {
-        const mavenConfigDir = 'maven/';
-        this.fs.copyTpl(
-            this.templatePath(mavenConfigDir + 'pom.xml'),
-            this.destinationPath('pom.xml'),
-            configOptions
-        );
-    }
 
 };

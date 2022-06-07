@@ -59,7 +59,7 @@ class <%= entityName %>ControllerTest {
     void shouldFind<%= entityName %>ById() throws Exception {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %>Mapper <%= entityVarName %> = new <%= entityName %>Mapper(<%= entityVarName %>Id, "text 1");
-        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(<%= entityVarName %>);
+        given(<%= entityVarName %>Service.find(<%= entityVarName %>Id)).willReturn(<%= entityVarName %>);
 
         this.mockMvc
                 .perform(get("<%= basePath %>/{id}", <%= entityVarName %>Id))
@@ -70,7 +70,7 @@ class <%= entityName %>ControllerTest {
     @Test
     void shouldReturn404WhenFetchingNonExisting<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(null);
+        given(<%= entityVarName %>Service.find(<%= entityVarName %>Id)).willReturn(null);
 
         this.mockMvc
                 .perform(get("<%= basePath %>/{id}", <%= entityVarName %>Id))
@@ -79,7 +79,7 @@ class <%= entityName %>ControllerTest {
 
     @Test
     void shouldCreateNew<%= entityName %>() throws Exception {
-        given(<%= entityVarName %>Service.salvar<%= entityName %>(any(<%= entityName %>Mapper.class)))
+        given(<%= entityVarName %>Service.save<%= entityName %>(any(<%= entityName %>Mapper.class)))
                 .willAnswer((invocation) -> invocation.getArgument(0));
 
         <%= entityName %>Mapper <%= entityVarName %> = new <%= entityName %>Mapper(1L, "some text");
@@ -99,7 +99,7 @@ class <%= entityName %>ControllerTest {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %>Mapper <%= entityVarName %> = new <%= entityName %>Mapper(<%= entityVarName %>Id, "Some text");
         given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(<%= entityVarName %>);
-        doNothing().when(<%= entityVarName %>Service).remover<%= entityName %>(<%= entityVarName %>.getId());
+        doNothing().when(<%= entityVarName %>Service).delete<%= entityName %>(<%= entityVarName %>.getId());
 
         this.mockMvc
                 .perform(delete("<%= basePath %>/{id}", <%= entityVarName %>.getId()))
@@ -110,7 +110,7 @@ class <%= entityName %>ControllerTest {
     @Test
     void shouldReturn404WhenDeletingNonExisting<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(null);
+        given(<%= entityVarName %>Service.find(<%= entityVarName %>Id)).willReturn(null);
 
         this.mockMvc
                 .perform(delete("<%= basePath %>/{id}", <%= entityVarName %>Id))

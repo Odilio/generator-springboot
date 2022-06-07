@@ -33,7 +33,7 @@ You can generate REST API with CRUD operation using the following command:
 
 :high_brightness: You should run the following command from within the generated project folder. 
 
-`myservice> yo springboot-hexagonal:hexagonal Customer --base-path /customers`
+`myservice> yo springboot-hexagonal:hexagonal Customer`
 
 This will generate:
 * JPA entity
@@ -45,14 +45,14 @@ This will generate:
 
 # Other commands
 
-`myservice> yo springboot-hexagonal:rabbitmq Customer --queue-name customers`
-see more in https://app.gitbook.com/s/rLLGeeSO6PcRKC2RD6tD/generators/rabbitmq
-
 `myservice> yo springboot-hexagonal:kubernetes`
 see more in https://spark-life.gitbook.io/spring-hexagonal/generators/kubernetes
 
 `myservice> yo springboot-hexagonal:react` 
 see more in https://spark-life.gitbook.io/spring-hexagonal/generators/react
+
+`myservice> yo springboot-hexagonal:rabbitmq Customer --queue-name customers`
+see more in https://spark-life.gitbook.io/spring-hexagonal/generators/rabbitmq
 
 `myservice> yo springboot-hexagonal:security` - in dev
 
