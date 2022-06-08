@@ -33,7 +33,7 @@ module.exports = class extends BaseGenerator {
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
         this.configOptions.security = true;
         this.configOptions.rabbit = false;
-        this.configOptions.tableName = _.lowerCase(this.options.entityName)+'s';
+        this.configOptions.tableName = _.lowerCase(this.configOptions.entityName)+'s';
         Object.assign(this.configOptions, constants);
        
     }
@@ -94,7 +94,7 @@ module.exports = class extends BaseGenerator {
 
         this.fs.copyTpl(
             this.templatePath('app/src/main/resources/db/migration/flyway/V1__security.sql'),
-            this.destinationPath('src/main/resources/db/migration/h2/V2__create_security_table.sql'),
+            this.destinationPath('src/main/resources/db/migration/h2/V'+counter+'create_security_table.sql'),
             configOptions
         );
 

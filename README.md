@@ -77,6 +77,10 @@ myservice> yo springboot-hexagonal:mongodb
 
 myservice> yo springboot-hexagonal:grpc
 
+myservice> yo springboot-hexagonal:gateway
+
+myservice> yo springboot-hexagonal:oauth2
+
 myservice> yo springboot-hexagonal:mail
 
 myservice> yo springboot-hexagonal:reactadmin

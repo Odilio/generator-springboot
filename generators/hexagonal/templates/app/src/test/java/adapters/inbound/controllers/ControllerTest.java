@@ -98,7 +98,7 @@ class <%= entityName %>ControllerTest {
     void shouldDelete<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %>Mapper <%= entityVarName %> = new <%= entityName %>Mapper(<%= entityVarName %>Id, "Some text");
-        given(<%= entityVarName %>Service.buscarPorCodigo(<%= entityVarName %>Id)).willReturn(<%= entityVarName %>);
+        given(<%= entityVarName %>Service.find(<%= entityVarName %>Id)).willReturn(<%= entityVarName %>);
         doNothing().when(<%= entityVarName %>Service).delete<%= entityName %>(<%= entityVarName %>.getId());
 
         this.mockMvc
