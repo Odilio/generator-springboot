@@ -27,6 +27,5 @@ module.exports = {
     MAVEN_SONAR_PLUGIN_VERSION:'3.9.1.2184',
     MAVEN_JACOCO_PLUGIN_VERSION:'0.8.8',
 
-    KEY_FLYWAY_MIGRATION_COUNTER : 'flywayMigrationCounter',
-    KEY_LIQUIBASE_MIGRATION_COUNTER : 'liquibaseMigrationCounter'
+    KEY_FLYWAY_MIGRATION_COUNTER : 'flywayMigrationCounter'
 }

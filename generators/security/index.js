@@ -66,14 +66,8 @@ module.exports = class extends BaseGenerator {
             {src: 'adapters/entities/Role.java', dest: 'adapters/entities/Role.java'},
             {src: 'adapters/entities/ERole.java', dest: 'adapters/entities/ERole.java'},
 
-            {src: 'adapters/outbound/UserRepositoryAdapter.java', dest: 'adapters/outbound/'+configOptions.entityName+'RepositoryAdapter.java'},
             {src: 'adapters/outbound/repositories/UserRepository.java', dest: 'adapters/outbound/repositories/'+configOptions.entityName+'Repository.java'},
-
-            {src: 'application/services/UserService.java', dest: 'application/services/'+configOptions.entityName+'Service.java'},
-
-            {src: 'ports/out/RepositoryPort.java', dest: 'ports/out/'+configOptions.entityName+'RepositoryPort.java'},
-            {src: 'ports/in/ServicePort.java', dest: 'ports/in/'+configOptions.entityName+'ServicePort.java'},
-           
+ 
             {src: 'adapters/dto/Entity.java', dest: 'adapters/dto/'+configOptions.entityName+'DTO.java'},
             {src: 'adapters/dto/JwtRequest.java', dest: 'adapters/dto/JwtRequest.java'},
             {src: 'adapters/dto/JwtResponse.java', dest: 'adapters/dto/JwtResponse.java'},

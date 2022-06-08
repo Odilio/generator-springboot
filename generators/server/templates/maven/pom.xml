@@ -126,12 +126,6 @@
             <scope>runtime</scope>
         </dependency>
         <%_ } _%>
-        <%_ if (dbMigrationTool  === 'liquibase') { _%>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-        </dependency>
-        <%_ } _%>
         <%_ if (dbMigrationTool  === 'flywaydb') { _%>
         <dependency>
             <groupId>org.flywaydb</groupId>

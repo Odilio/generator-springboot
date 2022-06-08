@@ -131,27 +131,6 @@ describe('SpringBoot Generator', () => {
         });
     });
 
-    describe('Generate basic microservice using Gradle with Liquibase', () => {
-        before(done => {
-            helpers
-                .run(path.join(__dirname, '../generators/server'))
-                .withPrompts({
-                    "appName": "myservice",
-                    "packageName": "com.mycompany.myservice",
-                    "packageFolder": "com/mycompany/myservice",
-                    "databaseType": "postgresql",
-                    "dbMigrationTool": "liquibase",
-                    "buildTool": "gradle",
-                    "features": []
-                })
-                .on('end', done);
-        });
-
-        it('creates expected default files for basic microservice with maven', () => {
-            assert.file('build.gradle');
-        });
-    });
-
     describe('Generate complete microservice using Gradle', () => {
         before(done => {
             helpers

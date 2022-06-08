@@ -14,18 +14,17 @@ https://spark-life.gitbook.io/spring-hexagonal/
 ## Features
 
 * SpringBoot REST API
-* CORS configuration
-* Swagger UI Integration
 * Spring Data JPA integration with option to select databases like MySQL, Postgresql, MariaDB etc
 * RabbitMQ
 * Kubernetes
-* Flyway or Liquibase data migration support
+* Flyway data migration support
 * SpringBoot Actuator configuration
 * ReactJS starter
 * TestContainers integration
 * JUnit 5 
 * ArchUnit
 * Localstack configuration
+* Swagger UI Integration
 
 
 ### Generate REST API with CRUD operations
@@ -35,13 +34,15 @@ You can generate REST API with CRUD operation using the following command:
 
 `myservice> yo springboot-hexagonal:hexagonal Customer`
 
+Customer will be the name used in DTOs, Mappers and Models
+
 This will generate:
 * JPA entity
 * Spring Data JPA Repository
 * Service
 * Spring MVC REST Controller with CRUD operations
 * Unit and Integration Tests for REST Controller
-* Flyway or Liquibase migration to create table
+* Flyway migration to create table
 
 # Other commands
 

@@ -62,9 +62,6 @@ dependencies {
     <%_ if (dbMigrationTool  === 'flywaydb') { _%>
     implementation 'org.flywaydb:flyway-core'
     <%_ } _%>
-    <%_ if (dbMigrationTool === 'liquibase') { _%>
-    implementation 'org.liquibase:liquibase-core'
-    <%_ } _%>
     implementation "org.springdoc:springdoc-openapi-ui:${springdoc_openapi_version}"
     implementation "org.zalando:problem-spring-web-starter:${problem_spring_web_version}"
     implementation "org.apache.commons:commons-lang3:${commons_lang_version}"
