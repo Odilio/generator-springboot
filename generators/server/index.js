@@ -3,6 +3,7 @@ const BaseGenerator = require('../base-generator');
 const constants = require('../constants');
 const prompts = require('./prompts');
 const path = require('path');
+const yosay = require('yosay');
 
 module.exports = class extends BaseGenerator {
 
@@ -12,7 +13,7 @@ module.exports = class extends BaseGenerator {
     }
 
     initializing() {
-        this.logSuccess('Generating SpringBoot Application')
+        this.logSuccess(yosay('Generating SpringBoot Application'))
     }
 
     get prompting() {
