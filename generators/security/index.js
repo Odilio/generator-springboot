@@ -63,8 +63,6 @@ module.exports = class extends BaseGenerator {
             {src: 'adapters/inbound/controllers/JwtAuthenticationController.java', dest: 'adapters/inbound/controllers/JwtAuthenticationController.java'},
           
             {src: 'adapters/entities/Entity.java', dest: 'adapters/entities/'+configOptions.entityName+'.java'},
-            {src: 'adapters/entities/Role.java', dest: 'adapters/entities/Role.java'},
-            {src: 'adapters/entities/ERole.java', dest: 'adapters/entities/ERole.java'},
 
             {src: 'adapters/outbound/repositories/UserRepository.java', dest: 'adapters/outbound/repositories/'+configOptions.entityName+'Repository.java'},
  

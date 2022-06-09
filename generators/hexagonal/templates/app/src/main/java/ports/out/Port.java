@@ -12,7 +12,7 @@ public interface <%= entityName %>PersistencePort {
 
     public Page<<%= entityName %>> findAll(Pageable page);
 
-    public <%= entityName %> save(<%= entityName %>Mapper <%= entityName %>);
+    public <%= entityName %>DTO save(<%= entityName %>Mapper <%= entityName %>);
 
     public void deleteById(Long id);
 }

@@ -15,10 +15,6 @@ module.exports = class extends BaseGenerator {
             description: "Entity name"
         });
 
-        this.option('queue-name', {
-            type: String,
-            desc: "Queue name"
-        })
     }
 
     get initializing() {
@@ -26,7 +22,7 @@ module.exports = class extends BaseGenerator {
         return {
             validateEntityName() {
                 const context = this.context;
-                console.log(`EntityName: ${this.options.entityName}, QueueNam: ${this.options.basePath}`);
+                console.log(`EntityName: ${this.options.entityName}`);
                 //this.env.error("The entity name is invalid");
             }
         }
@@ -38,9 +34,9 @@ module.exports = class extends BaseGenerator {
 
     configuring() {
         this.configOptions = Object.assign({}, this.configOptions, this.config.getAll());
-        this.configOptions.queueName = this.options['queue-name'];
         this.configOptions.entityName = this.options.entityName;
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
+        this.configOptions.queueName = `queue-${this.configOptions.entityVarName}`;
         this.configOptions.rabbit = true;
         Object.assign(this.configOptions, constants);
     }

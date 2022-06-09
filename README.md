@@ -19,6 +19,7 @@ https://spark-life.gitbook.io/spring-hexagonal/
 * Kubernetes
 * Flyway data migration support
 * SpringBoot Actuator configuration
+* Spring Native / GraalVM
 * ReactJS starter
 * TestContainers integration
 * JUnit 5 
@@ -52,12 +53,12 @@ see more in https://spark-life.gitbook.io/spring-hexagonal/generators/kubernetes
 `myservice> yo springboot-hexagonal:react` 
 see more in https://spark-life.gitbook.io/spring-hexagonal/generators/react
 
-`myservice> yo springboot-hexagonal:rabbitmq Customer --queue-name customers`
+`myservice> yo springboot-hexagonal:rabbitmq Customer`
 see more in https://spark-life.gitbook.io/spring-hexagonal/generators/rabbitmq
 
 `myservice> yo springboot-hexagonal:security` - in dev
 
-`myservice> yo springboot-hexagonal:webclient --uri https://testnets-api.opensea.io` - in dev
+`myservice> yo springboot-hexagonal:webclient Person --uri https://testnets-api.opensea.io` - in dev
 
 ## Local Development Setup
 

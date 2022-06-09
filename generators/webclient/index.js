@@ -52,6 +52,10 @@ module.exports = class extends BaseGenerator {
     }
 
   
+    _generateMavenConfig(configOptions) {
+        this._copyMavenWrapper(configOptions);
+        this._generateMavenPOMXml(configOptions);
+    }
 
     end() {
         //TODO; Disabling this temporarily to fix test failures.
@@ -71,5 +75,35 @@ module.exports = class extends BaseGenerator {
 
     }
 
+    _copyMavenWrapper(configOptions) {
+        const commonMavenConfigDir = '../../common/files/maven/';
+
+        ['mvnw', 'mvnw.cmd'].forEach(tmpl => {
+            this.fs.copyTpl(
+                this.templatePath(commonMavenConfigDir + tmpl),
+                this.destinationPath(tmpl)
+            );
+        });
+
+        this.fs.copyTpl(
+            this.templatePath(commonMavenConfigDir + 'gitignore'),
+            this.destinationPath('.gitignore')
+        );
+
+        this.fs.copy(
+            this.templatePath(commonMavenConfigDir + '.mvn'),
+            this.destinationPath('.mvn')
+        );
+
+    }
+
+    _generateMavenPOMXml(configOptions) {
+        const mavenConfigDir = '../../common/files/maven/';
+        this.fs.copyTpl(
+            this.templatePath(mavenConfigDir + 'pom.xml'),
+            this.destinationPath('pom.xml'),
+            configOptions
+        );
+    }
 
 };
