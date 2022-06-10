@@ -6,6 +6,8 @@ import <%= packageName %>.ports.out.<%= entityName %>RepositoryPort;
 import <%= packageName %>.adapters.entities.<%= entityName %>;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import <%= packageName %>.adapters.mapper.<%= entityName %>Mapper;
+import <%= packageName %>.adapters.mapper.Converter;
 
 public class <%= entityName %>RepositoryAdapter implements <%= entityName %>RepositoryPort {
 

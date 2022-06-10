@@ -58,6 +58,8 @@ see more in https://spark-life.gitbook.io/spring-hexagonal/generators/rabbitmq
 
 `myservice> yo springboot-hexagonal:security` - in dev
 
+`myservice> yo springboot-hexagonal:kafka` - in dev
+
 `myservice> yo springboot-hexagonal:webclient Person --uri https://testnets-api.opensea.io` - in dev
 
 ## Local Development Setup
