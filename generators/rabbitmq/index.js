@@ -37,9 +37,10 @@ module.exports = class extends BaseGenerator {
         this.configOptions.entityName = this.options.entityName;
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
         this.configOptions.queueName = `queue-${this.configOptions.entityVarName}`;
+        this.configOptions.security = this.config.get('security');
         this.configOptions.rabbit = true;
-        Object.assign(this.configOptions, rabbit);
-        this.config.set(rabbit);
+        this.configOptions.webclient = this.config.get('webclient');
+        this.config.set(this.configOptions.webclient);
         Object.assign(this.configOptions, constants);
     }
 
