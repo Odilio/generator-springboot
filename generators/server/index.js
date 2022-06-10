@@ -108,7 +108,7 @@ module.exports = class extends BaseGenerator {
     }
 
     _generateMavenPOMXml(configOptions) {
-        const mavenConfigDir = 'maven/';
+        const mavenConfigDir = '../../common/files/maven/';
         this.fs.copyTpl(
             this.templatePath(mavenConfigDir + 'pom.xml'),
             this.destinationPath('pom.xml'),

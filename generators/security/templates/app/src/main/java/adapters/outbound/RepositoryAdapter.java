@@ -17,14 +17,14 @@ public class <%= entityName %>RepositoryAdapter implements <%= entityName %>Repo
 
   public Optional<<%= entityName %>> findByUsername(String username){
     return null;
-  };
+  }
 
   public <%= entityName %> registerUser(<%= entityName %> <%= entityVarName %>){
     <%= entityVarName %>.setPassword(passwordEncoder.encode(<%= entityVarName %>.getPassword()));
     return userRepository.save();
-  };
+  }
 
   public Boolean existsByEmail(String email){
     return null;
-  };
+  }
 }
