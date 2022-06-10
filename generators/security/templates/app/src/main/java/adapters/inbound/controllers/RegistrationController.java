@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import <%= packageName %>.adapters.entities.Auth;
-import <%= packageName %>.pots.out.AuthRepositoryPort;
+import <%= packageName %>.ports.out.AuthRepositoryPort;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,7 +29,7 @@ public class RegistrationController {
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody <%= entityName %> userModel, final HttpServletRequest request) {
-    	<%= entityName %> user = userService.save(userModel);
+    	<%= entityName %> user = userService.registerUser(userModel);
        
         return ResponseEntity.ok().body("Success");
     }
