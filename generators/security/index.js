@@ -30,7 +30,7 @@ module.exports = class extends BaseGenerator {
         this.configOptions = Object.assign({}, this.configOptions, this.config.getAll());
         this.configOptions.basePath = this.options['base-path'];
         this.configOptions.entityName = 'Auth';
-        this.configOptions.entityVarName = _.camelCase(this.options.entityName);
+        this.configOptions.entityVarName = _.camelCase(this.configOptions.entityName);
         this.configOptions.security = true;
         this.configOptions.rabbit = false;
         this.configOptions.tableName = _.lowerCase(this.configOptions.entityName)+'s';
@@ -73,6 +73,8 @@ module.exports = class extends BaseGenerator {
             {src: 'adapters/dto/JwtResponse.java', dest: 'adapters/dto/JwtResponse.java'},
             {src: 'adapters/mapper/Entity.java', dest: 'adapters/mapper/'+configOptions.entityName+'Mapper.java'},
             {src: 'adapters/mapper/Converter.java', dest: 'adapters/mapper/Converter.java'},
+
+            {src: 'ports/out/Port.java', dest: 'ports/out/'+configOptions.entityName+'RepositoryPort.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 

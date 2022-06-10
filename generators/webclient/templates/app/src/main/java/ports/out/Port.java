@@ -12,7 +12,7 @@ public interface <%= entityName %>IntegrationPort {
 
     public Page<<%= entityName %>DTO> findAll(Pageable page);
 
-    public <%= entityName %>DTO findById(String)save(<%= entityName %>Mapper <%= entityName %>);
+    public <%= entityName %>DTO save(<%= entityName %>Mapper <%= entityName %>);
 
     public void deleteById(Long id);
 }
