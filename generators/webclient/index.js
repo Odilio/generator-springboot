@@ -49,6 +49,7 @@ module.exports = class extends BaseGenerator {
 
     writing() {
         this._generateAppCode(this.configOptions);
+        this._generateMavenConfig(this.configOptions);
     }
 
   
