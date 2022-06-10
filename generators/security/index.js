@@ -32,7 +32,8 @@ module.exports = class extends BaseGenerator {
         this.configOptions.entityName = 'Auth';
         this.configOptions.entityVarName = _.camelCase(this.configOptions.entityName);
         this.configOptions.security = true;
-        this.configOptions.rabbit = false;
+        this.configOptions.rabbit = this.configOptions.rabbit;
+        this.configOptions.webclient = this.configOptions.webclient;
         this.configOptions.tableName = _.lowerCase(this.configOptions.entityName)+'s';
         Object.assign(this.configOptions, constants);
        

@@ -41,6 +41,7 @@ module.exports = class extends BaseGenerator {
         this.configOptions.uri = this.options['uri'];
         this.configOptions.entityName = this.options.entityName;
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
+        this.configOptions.security = this.configOptions.security;
         this.configOptions.rabbit = false;
         this.configOptions.webclient = true;
         Object.assign(this.configOptions, constants);
