@@ -38,6 +38,8 @@ module.exports = class extends BaseGenerator {
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
         this.configOptions.queueName = `queue-${this.configOptions.entityVarName}`;
         this.configOptions.rabbit = true;
+        Object.assign(this.configOptions, rabbit);
+        this.config.set(rabbit);
         Object.assign(this.configOptions, constants);
     }
 

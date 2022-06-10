@@ -15,18 +15,14 @@ module.exports = class extends BaseGenerator {
             description: "Entity name"
         });
 
-        this.option('uri', {
-            type: String,
-            desc: "Uri"
-        })
     }
 
     get initializing() {
-        this.logSuccess('Generating DTO, WebClientConfig and Integrator');
+        this.logSuccess('Generating DTO, KafkaConfig, producer and consumer');
         return {
             validateEntityName() {
                 const context = this.context;
-                console.log(`EntityName: ${this.options.entityName}, Uri: ${this.options.basePath}`);
+                console.log(`EntityName: ${this.options.entityName}`);
                 //this.env.error("The entity name is invalid");
             }
         }
@@ -38,24 +34,22 @@ module.exports = class extends BaseGenerator {
 
     configuring() {
         this.configOptions = Object.assign({}, this.configOptions, this.config.getAll());
-        this.configOptions.uri = this.options['uri'];
         this.configOptions.entityName = this.options.entityName;
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
-        this.configOptions.security = this.configOptions.security;
-        this.configOptions.rabbit = this.configOptions.rabbit;
-        this.configOptions.webclient = true;
-        Object.assign(this.configOptions, webclient);
-        this.config.set(webclient);
+        this.configOptions.queueName = `queue-${this.configOptions.entityVarName}`;
+        this.configOptions.kafka = true;
+        Object.assign(this.configOptions, kafka);
+        this.config.set(kafka);
         Object.assign(this.configOptions, constants);
     }
 
 
     writing() {
-        this._generateAppCode(this.configOptions);
         this._generateMavenConfig(this.configOptions);
+        this._generateAppCode(this.configOptions);
+        this._generateBrokerClass(this.configOptions)
     }
 
-  
     _generateMavenConfig(configOptions) {
         this._copyMavenWrapper(configOptions);
         this._generateMavenPOMXml(configOptions);
@@ -69,14 +63,22 @@ module.exports = class extends BaseGenerator {
     _generateAppCode(configOptions) {
         const mainJavaTemplates = [
             {src: 'adapters/dto/Entity.java', dest: 'adapters/dto/'+configOptions.entityName+'DTO.java'},
-            {src: 'adapters/mapper/Entity.java', dest: 'adapters/mapper/'+configOptions.entityName+'Mapper.java'},
-            {src: 'adapters/mapper/Converter.java', dest: 'adapters/mapper/Converter.java'},
-            {src: 'ports/out/Port.java', dest: 'ports/out/'+configOptions.entityName+'IntegrationPort.java'},
-            {src: 'ports/in/Port.java', dest: 'ports/in/'+configOptions.entityName+'ServicePort.java'},
-            {src: 'adapters/config/WebClientConfiguration.java', dest: 'adapters/config/WebClientConfiguration.java'},
+            {src: 'adapters/inbound/message/consumer/Consumer.java', dest: 'adapters/inbound/message/consumer/'+configOptions.entityName+'Consumer.java'},
+            {src: 'adapters/inbound/message/producer/Producer.java', dest: 'adapters/inbound/message/producer/'+configOptions.entityName+'Producer.java'},
+            {src: 'adapters/inbound/message/config/MQConfig.java', dest: 'adapters/inbound/message/config/KafkaMQConfig.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
+    }
+
+    _generateBrokerClass(configOptions) {
+
+        if(configOptions.brokerTool === 'consumer') {
+
+        }
+
+        if(configOptions.brokerTool === 'producer') {
+        }
     }
 
     _copyMavenWrapper(configOptions) {
@@ -102,7 +104,7 @@ module.exports = class extends BaseGenerator {
     }
 
     _generateMavenPOMXml(configOptions) {
-        const mavenConfigDir = '../../common/files/maven/';
+        const mavenConfigDir = 'maven/';
         this.fs.copyTpl(
             this.templatePath(mavenConfigDir + 'pom.xml'),
             this.destinationPath('pom.xml'),
