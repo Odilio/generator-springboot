@@ -12,4 +12,10 @@ public class <%= entityName %>DTO {
     private Long id;
 
     private String text;
+
+    private String username;
+
+    private String email;
+
+    private String password;
 }

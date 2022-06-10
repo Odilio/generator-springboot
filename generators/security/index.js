@@ -35,6 +35,8 @@ module.exports = class extends BaseGenerator {
         this.configOptions.rabbit = this.configOptions.rabbit;
         this.configOptions.webclient = this.configOptions.webclient;
         this.configOptions.tableName = _.lowerCase(this.configOptions.entityName)+'s';
+        Object.assign(configOptions, security);
+        this.config.set(security);
         Object.assign(this.configOptions, constants);
        
     }
@@ -131,7 +133,7 @@ module.exports = class extends BaseGenerator {
     }
 
     _generateMavenPOMXml(configOptions) {
-        const mavenConfigDir = 'maven/';
+        const mavenConfigDir = '../../common/files/maven/';
         this.fs.copyTpl(
             this.templatePath(mavenConfigDir + 'pom.xml'),
             this.destinationPath('pom.xml'),

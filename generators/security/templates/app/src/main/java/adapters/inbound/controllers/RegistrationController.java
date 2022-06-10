@@ -29,7 +29,7 @@ public class RegistrationController {
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody <%= entityName %> userModel, final HttpServletRequest request) {
-    	<%= entityName %> user = userService.registerUser(userModel);
+        <%= entityName %> user = userService.registerUser((<%= entityName %>Mapper) Converter.toModel(userModel,<%= entityName %>Mapper.class));
        
         return ResponseEntity.ok().body("Success");
     }

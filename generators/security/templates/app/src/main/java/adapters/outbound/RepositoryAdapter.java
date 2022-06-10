@@ -19,9 +19,9 @@ public class <%= entityName %>RepositoryAdapter implements <%= entityName %>Repo
     return null;
   }
 
-  public <%= entityName %> registerUser(<%= entityName %> <%= entityVarName %>){
+  public <%= entityName %> registerUser(<%= entityName %>Mapper <%= entityVarName %>){
     <%= entityVarName %>.setPassword(passwordEncoder.encode(<%= entityVarName %>.getPassword()));
-    return userRepository.save();
+    return userRepository.save((<%= entityName %>) Converter.toModel(<%= entityVarName %>, <%= entityName %>.class));
   }
 
   public Boolean existsByEmail(String email){
