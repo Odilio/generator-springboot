@@ -44,6 +44,13 @@ module.exports = class extends Generator {
     });
   }
 
+  configuring() {
+    this.configOptions = Object.assign({}, this.configOptions, this.config.getAll());
+    this.configOptions.security = this.config.get('security');
+    this.config.set('react', true);
+    Object.assign(this.configOptions, constants);
+}
+
   writing() {
     const { applicationName, yarn } = this.data;
     const { typescript, ts } = this.options;
