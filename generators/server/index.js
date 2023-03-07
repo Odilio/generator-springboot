@@ -22,6 +22,8 @@ module.exports = class extends BaseGenerator {
 
     configuring() {
         this.destinationRoot(path.join(this.destinationRoot(), '/'+this.configOptions.appName));
+        this.configOptions.rabbit = this.config.get('rabbit');
+        this.configOptions.security = this.config.get('security');
         this.config.set(this.configOptions);
         Object.assign(this.configOptions, constants);
     }
